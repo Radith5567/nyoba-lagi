@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Selamat Ulang Tahun!</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Canvas Confetti Library untuk efek kembang api/konfeti -->
+  <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
@@ -44,6 +44,30 @@
         <button class="btn btn-primary" onclick="blowCandle()">🎂 Tiup Lilin</button>
         <button class="btn btn-secondary" onclick="triggerConfetti()">🎉 Rayakan!</button>
       </div>
+
+      <!-- KOTAK-KOTAK INTERAKTIF -->
+      <div class="interactive-section">
+        <h3 class="section-title">Buka Kotak Kejutan 🎁</h3>
+        <div class="grid-boxes">
+          <div class="box" onclick="openBox(this, 'Kamu adalah sosok yang selalu membawa keceriaan! 💖')">
+            <span class="box-icon">🎁</span>
+            <span class="box-label">Klik Aku</span>
+          </div>
+          <div class="box" onclick="openBox(this, 'Semoga semua cita-cita dan impian besarmu segera terwujud! ✨')">
+            <span class="box-icon">🎁</span>
+            <span class="box-label">Klik Aku</span>
+          </div>
+          <div class="box" onclick="openBox(this, 'Terima kasih telah menjadi orang yang luar biasa! 🌸')">
+            <span class="box-icon">🎁</span>
+            <span class="box-label">Klik Aku</span>
+          </div>
+          <div class="box" onclick="openBox(this, 'Tetaplah bersinar dan bahagia setiap harinya! 🌟')">
+            <span class="box-icon">🎁</span>
+            <span class="box-label">Klik Aku</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 

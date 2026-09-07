@@ -12,8 +12,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
+  padding: 20px 0;
 }
 
 /* Card Container */
@@ -21,7 +22,7 @@ body {
   z-index: 10;
   padding: 20px;
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
 }
 
 .card {
@@ -57,8 +58,6 @@ body {
   font-size: 2rem;
   margin-bottom: 20px;
   background: linear-gradient(45deg, #ff4081, #7c4dff);
-  
-  /* Tambahkan versi standar di atas versi webkit */
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -68,7 +67,7 @@ body {
   background: rgba(255, 255, 255, 0.6);
   padding: 16px;
   border-radius: 16px;
-  margin: 24px 0;
+  margin: 20px 0;
   color: #546e7a;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -176,10 +175,6 @@ body {
   opacity: 0.95;
 }
 
-.btn:active {
-  transform: translateY(0);
-}
-
 /* Floating Balloons */
 .balloon-container {
   position: absolute;
@@ -202,12 +197,86 @@ body {
 }
 
 @keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+  100% { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
+}
+
+/* === KOTAK-KOTAK INTERAKTIF & ANIMASI LOVE === */
+.interactive-section {
+  margin-top: 28px;
+  border-top: 1px dashed #b0bec5;
+  padding-top: 20px;
+}
+
+.section-title {
+  font-size: 1rem;
+  color: #455a64;
+  margin-bottom: 14px;
+}
+
+.grid-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.box {
+  background: #ffffff;
+  border: 2px solid #f8bbd0;
+  border-radius: 16px;
+  padding: 16px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.box:hover {
+  transform: scale(1.04);
+  border-color: #ff4081;
+  box-shadow: 0 6px 15px rgba(255, 64, 129, 0.15);
+}
+
+.box-icon {
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+  transition: transform 0.3s ease;
+}
+
+.box-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #880e4f;
+}
+
+.box.opened {
+  background: #fce4ec;
+  border-color: #ff80ab;
+}
+
+/* Animasi Hati Melayang */
+.floating-heart {
+  position: absolute;
+  font-size: 1.5rem;
+  pointer-events: none;
+  z-index: 100;
+  animation: floatLove 1.2s ease-out forwards;
+}
+
+@keyframes floatLove {
   0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.7;
+    opacity: 1;
+    transform: translate(-50%, 0) scale(0.6);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -40px) scale(1.2);
   }
   100% {
-    transform: translateY(-110vh) rotate(20deg);
     opacity: 0;
+    transform: translate(-50%, -80px) scale(1);
   }
 }
